@@ -2,29 +2,46 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>〇〇大学 サイクルサッカー部</title>
+  <title>東京科学大学 サイクリング部 ボール班</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-  <h1>〇〇大学 サイクルサッカー部</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">トップ</a></li>
-      <li><a href="about.html">部活紹介</a></li>
-      <li><a href="activity.html">活動内容</a></li>
-      <li><a href="members.html">部員紹介</a></li>
-      <li><a href="join.html">入部案内</a></li>
-      <li><a href="contact.html">お問い合わせ</a></li>
-    </ul>
-  </nav>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <img src="images/logo.jpg" alt="部活ロゴ">
+    </div>
+  
+    <nav class="global-nav" id="global-nav">
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="about.html">部活紹介</a></li>
+        <li class="active"><a href="activity.html">活動内容</a></li>
+        <li><a href="members.html">部員紹介</a></li>
+        <li><a href="join.html">入部案内</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  
+    <button class="hamburger" id="hamburger">
+     <span></span>
+     <span></span>
+     <span></span>
+    </button>
+  </div>
 </header>
 
+
+<section class="page-title">
+  <h1>活動内容<span> / Our activity</span></h1>
+</section>
+
 <main>
-    <h2>部活紹介</h2>
-    <p>サイクルサッカーとは〜</p>
+    <h2>活動日</h2>
+    <p>毎週水曜日18:00-21:00と毎週土曜日17:00-21:00が固定の活動日で週によっては日曜日に活動を行っています</p>
     <div class="photo-list">
         <img src="images/practice.jpg" alt="練習風景">
         <img src="images/practice.jpg" alt="練習風景">
@@ -36,6 +53,15 @@
 <footer>
   <p>© 〇〇大学 サイクルサッカー部</p>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('global-nav');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
