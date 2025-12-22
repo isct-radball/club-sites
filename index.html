@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>東京科学大学 サイクリング部 ボール班</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/icon.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,7 +13,9 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="logo">
-      <img src="images/logo.jpg" alt="部活ロゴ">
+      <a href="index.html">
+       <img src="images/logo.jpg" alt="部活ロゴ">
+      </a>
     </div>
   
     <nav class="global-nav" id="global-nav">
@@ -39,34 +42,69 @@
   <h1>トップ<span> / Top</span></h1>
 </section>
 
+<section class="slideshow">
+  <img src="images/slide1.jpg" class="slide active">
+  <img src="images/slide2.jpg" class="slide">
+  <img src="images/slide3.jpg" class="slide">
+</section>
+
 
 <main>
-  <h2>ようこそ</h2>
-  <img src="images/top.jpg" alt="練習風景" width="600">
-  <p>
-    私たちは〇〇大学で活動するサイクルサッカー部です。
-    初心者から経験者まで幅広く活動しています。
-  
-  </p>
 
-  <section class="news">
-    <h2>お知らせ</h2>
-  
-    <div class="news-item">
-      <h3>2025/04/01 新入生歓迎練習</h3>
-      <p>新入生向け体験練習を行います。</p>
+
+<!-- ===== 最新情報（テキスト） ===== -->
+<section class="latest-news">
+  <h2>最新情報</h2>
+
+  <div class="news-item">
+    <h3>2025/12/06 ドットリンクカップ</h3>
+    <p>OBOGとサイクルサッカーをしました。</p>
+  </div>
+
+  <div class="news-item">
+    <h3>2025/11/23 全日本学生選手権結果</h3>
+    <p>全4チームが出場しました。</p>
+  </div>
+</section>
+
+
+<!-- ===== SNS（横並び） ===== -->
+<section class="sns-area">
+  <div class="sns-container">
+
+    <!-- Instagram -->
+    <div class="sns-box">
+      <h3>Instagram</h3>
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DSegpsAEfp-/"
+        data-instgrm-version="14">
+      </blockquote>
     </div>
-  
-    <div class="news-item">
-      <h3>2025/03/20 春季大会結果</h3>
-      <p>〇勝〇敗でした。</p>
+
+    <!-- X（Twitter） -->
+    <div class="sns-box">
+      <h3>X（旧Twitter）</h3>
+      <a class="twitter-timeline"
+         href="https://x.com/titech_radball"
+         data-tweet-limit="3">
+        Tweets by titech_radball
+      </a>
     </div>
-  </section>
+
+  </div>
+</section>
+
+<!-- SNS用スクリプト -->
+<script async src="https://www.instagram.com/embed.js"></script>
+<script async src="https://platform.twitter.com/widgets.js"></script>
+
+
+
   
 </main>
 
 <footer>
-  <p>© 〇〇大学 サイクルサッカー部</p>
+  <p>© 〇〇大学 サイクリング部 ボール班</p>
 </footer>
 
 <script>
@@ -76,7 +114,19 @@
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('active');
   });
+
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+setInterval(() => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}, 4000);
+
 </script>
+
+
 
 </body>
 </html>

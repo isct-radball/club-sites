@@ -113,6 +113,7 @@ footer {
 /* グローバルナビ（横並び） */
 .global-nav {
   justify-self: center;
+  display: block;
   z-index: 1000;
 }
 
@@ -191,6 +192,142 @@ footer {
   background: #f0f0f0;
 }
 
+/* ===== スライドショー ===== */
+.slideshow {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.slideshow img.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* ===== トップ2カラム ===== */
+.top-columns {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.column h2 {
+  border-bottom: 2px solid #7b1e1e;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* Instagram */
+.instagram iframe {
+  width: 100%;
+  height: 500px;
+}
+
+/* ニュース */
+.news-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+/* =========================
+  最新情報（テキスト）
+========================= */
+.latest-news {
+  max-width: 1100px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+}
+
+.latest-news h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.latest-news .news-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+/* =========================
+  SNSエリア
+========================= */
+.sns-area {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.sns-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.sns-box {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 15px;
+}
+
+.sns-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* =========================
+  スマホ対応
+========================= */
+@media (max-width: 768px) {
+  .sns-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .top-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .slideshow img {
+    height: 250px;
+  }
+}
+.top-columns {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+}
+
+.top-columns .column {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .top-columns {
+    flex-direction: column;
+  }
+}
+
+
+
+
 
 
   /* スマホ対応 */
@@ -227,6 +364,43 @@ footer {
         text-align: center;
       }
   }
+/* =========================
+  レスポンシブ切り替え
+========================= */
+@media (max-width: 800px) {
+
+  /* 横並びナビを消す */
+  .global-nav {
+    display: none;
+  }
+
+  /* 三本線を表示 */
+  .hamburger {
+    display: block;
+  }
+
+  /* 開いたときだけ表示 */
+  .global-nav.active {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    background: #fff;
+    border: 1px solid #ddd;
+  }
+
+  /* 縦並び */
+  .global-nav.active ul {
+    display: block;
+  }
+
+  .global-nav.active li a {
+    display: block;
+    padding: 12px;
+    color: #333;
+  }
+}
 
   
   
