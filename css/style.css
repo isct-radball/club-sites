@@ -70,6 +70,8 @@ footer {
   background: #990404;
   color: #fff;
   padding: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .page-title h1 {
@@ -784,7 +786,7 @@ footer {
 /* ===== 部活紹介：導入 ===== */
 .about-intro {
   max-width: 1100px;
-  margin: 80px auto;
+  margin: 20px auto;
   padding: 0 20px;
 }
 
@@ -950,6 +952,12 @@ footer {
   scroll-margin-top: 90px;
 }
 
+#content,
+#report,
+#result,
+#news {
+  scroll-margin-top: 90px;
+}
 
 
 /* スマホ対応 */
@@ -1156,6 +1164,238 @@ footer {
     flex-direction: column;
   }
 }
+
+/* ===== 戦績・レポート・お知らせ 共通 ===== */
+.results-section,
+.report-section,
+.news-section {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.results-section h2,
+.report-section h2,
+.news-section h2 {
+  border-bottom: 2px solid #7b1e1e;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+}
+
+/* 目玉戦績 */
+.highlight-result {
+  background: #fafafa;
+  border-left: 6px solid #7b1e1e;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+}
+
+.highlight-result h3 {
+  margin-top: 0;
+}
+
+/* 一覧へのリンク */
+.news-more {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #7b1e1e;
+}
+.activity-section {
+  margin: 40px 0;
+}
+
+.activity-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.activity-text {
+  flex: 1;
+}
+
+.activity-image {
+  flex: 1;
+}
+
+.activity-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* スマホ */
+@media (max-width: 768px) {
+  .activity-inner {
+    flex-direction: column;
+  }
+}
+
+/* ===== 共通レイアウト ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  margin: 80px 0;
+}
+
+/* ===== 活動内容 ===== */
+.activity-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.activity-text {
+  flex: 1;
+}
+
+.activity-image {
+  flex: 1;
+}
+
+.activity-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ===== 戦績・レポート・お知らせ ===== */
+.results-section,
+.report-section,
+.news-section {
+  background: #fafafa;
+  padding: 20px 0;
+}
+
+.highlight-result {
+  background: #fff;
+  border-left: 6px solid #7b1e1e;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.latest-results {
+  margin-bottom: 20px;
+}
+
+.news-item {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.news-more {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #7b1e1e;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .activity-inner {
+    flex-direction: column;
+  }
+}
+
+/* ===== 部員紹介 ===== */
+.members-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.members-section h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.grade {
+  margin-bottom: 50px;
+}
+
+.grade h3 {
+  border-bottom: 2px solid #7b1e1e;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+/* カードグリッド */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+}
+
+.member-card {
+  text-align: center;
+}
+
+.member-card img {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.member-card .name {
+  font-weight: bold;
+}
+
+.member-card .role {
+  font-size: 14px;
+  color: #666;
+}
+
+.member-card .comment {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* ===== 部員の声 ===== */
+.voice-section {
+  background: #f7f7f7;
+  padding: 60px 20px;
+}
+
+.voice-section h2 {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+}
+
+.voice-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.voice-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.voice-text {
+  line-height: 1.6;
+}
+
+.voice-name {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  text-align: right;
+}
+
 
   
   
