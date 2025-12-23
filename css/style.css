@@ -36,11 +36,6 @@ footer {
   max-width: 300px;
 }
 
-.news-item {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
-}
-
 /* =========================
   3. 部員紹介
 ========================= */
@@ -311,6 +306,7 @@ footer {
 
 .about-image img {
   width: 100%;
+  border-radius: 8px;
   height: auto;
   display: block;
 }
@@ -373,6 +369,662 @@ footer {
 .map-embed {
   flex: 1;
 }
+/* ===== ヘッダー固定 ===== */
+.site-header {
+  position: sticky;   /* ← ここがポイント */
+  top: 0;
+  z-index: 2000;
+  background: #fff;
+}
+
+/* ===== パンくず ===== */
+.breadcrumb {
+  background: #f7f7f7;
+  font-size: 14px;
+}
+
+.breadcrumb ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px 10px;
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+.breadcrumb li::after {
+  content: ">";
+  margin-left: 5px;
+}
+
+.breadcrumb li:last-child::after {
+  content: "";
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #7b1e1e;
+}
+
+/* ===== フッター ===== */
+.site-footer {
+  background: #222;
+  color: #fff;
+  margin-top: 80px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 30px;
+}
+
+.footer-box h3,
+.footer-box h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.footer-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-box li {
+  margin-bottom: 8px;
+}
+
+.footer-box a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-box a:hover {
+  text-decoration: underline;
+}
+
+.footer-sns li::before {
+  content: "▶ ";
+  font-size: 12px;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 13px;
+  padding: 15px 0;
+  background: #111;
+}
+
+/* ===== ナビ基本 ===== */
+.nav-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list > li {
+  position: relative;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 6px;
+  display: block;
+}
+/* ===== サブメニュー ===== */
+.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid #ddd;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  z-index: 3000;
+  flex-direction: column;
+}
+
+.sub-menu li a {
+  padding: 10px 16px;
+  white-space: nowrap;
+}
+
+.sub-menu li a:hover {
+  background: #f5f5f5;
+}
+.footer-note {
+  font-size: 12px;
+  color: #ccc;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.last-update {
+  margin-top: 4px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-sns {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-sns li {
+  margin-bottom: 8px;
+}
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== トップ：ヒーロー ===== */
+.hero-copy {
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: #7b1e1e;
+  color: #fff;
+  padding: 12px 22px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.btn-secondary {
+  border: 2px solid #7b1e1e;
+  color: #7b1e1e;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* ===== 活動予定 ===== */
+.schedule-top {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.schedule-list li {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.schedule-list .date {
+  font-weight: bold;
+  min-width: 120px;
+}
+
+.schedule-note {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* ===== 最新情報 ===== */
+.news-more {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #7b1e1e;
+  font-weight: bold;
+}
+
+/* ===== SNS ===== */
+.sns-area h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+/* スライド背景 */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* オーバーレイ */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+}
+
+/* テキスト */
+.hero-content {
+  max-width: 1100px;
+  padding: 0 20px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-copy {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* ボタン */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn.primary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn.ghost {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+/* ===== 特徴エリア ===== */
+.features {
+  background: #f7f7f7;
+  padding: 60px 20px;
+}
+
+.features-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.feature-item h3 {
+  margin: 10px 0 8px;
+  font-size: 20px;
+}
+
+.feature-item p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .features-inner {
+    grid-template-columns: 1fr;
+  }
+}
+.hero + section {
+  margin-top: 50px;
+}
+
+/* ===== 部活紹介ページ ===== */
+.about-intro,
+.about-schedule,
+.about-faq {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.intro-text {
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-list li {
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.feature-title {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.year-list li {
+  margin-bottom: 10px;
+}
+
+.faq-list dt {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.faq-list dd {
+  margin-left: 0;
+  margin-top: 5px;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== 部活紹介：導入 ===== */
+.about-intro {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.about-intro h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.about-lead {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* 写真 */
+.about-photo {
+  margin: 30px 0 50px;
+}
+
+.about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* 特徴カード */
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.feature-card {
+  background: #f7f7f7;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #7b1e1e;
+}
+
+.feature-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===== 年間スケジュール ===== */
+.about-schedule {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.schedule-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.schedule-text {
+  flex: 1;
+}
+
+.schedule-text h2 {
+  margin-bottom: 20px;
+}
+
+.year-schedule {
+  list-style: none;
+  padding: 0;
+}
+
+.year-schedule li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.year-schedule span {
+  display: inline-block;
+  width: 80px;
+  font-weight: bold;
+  color: #7b1e1e;
+}
+
+/* 画像側 */
+.schedule-image {
+  flex: 1;
+}
+
+.schedule-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.image-caption {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+/* ===== 活動場所 ===== */
+.place-section {
+  margin: 80px 0;
+}
+
+.place-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.place-section h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.place-map {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* テキスト */
+.place-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.place-note {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 地図カード */
+.map-embed iframe {
+  width: 100%;
+  height: 260px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#sport,
+#schedule,
+#access,
+#faq {
+  scroll-margin-top: 90px;
+}
+
+
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .place-map {
+    grid-template-columns: 1fr;
+  }
+
+  .map-embed iframe {
+    height: 220px;
+  }
+}
+
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .schedule-inner {
+    flex-direction: column;
+  }
+}
+
+
+
+
+/* スマホ */
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+
+/* ホバー時に表示 */
+.has-sub:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+@media (max-width: 800px) {
+
+  .nav-list {
+    flex-direction: column;
+  }
+
+  .sub-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: none;
+    padding-left: 10px;
+  }
+
+  .has-sub > a::after {
+    content: " ▼";
+    font-size: 12px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ===== スマホ対応 ===== */
 @media (max-width: 768px) {

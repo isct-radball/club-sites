@@ -1,0 +1,182 @@
+/* ==============================
+   RESET
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==============================
+   THEME
+============================== */
+:root {
+  --main-bg: #0f0f0f;
+  --card-bg: #1a1a1a;
+  --text-main: #ffffff;
+  --text-sub: #bdbdbd;
+  --accent: #e10600;
+}
+
+/* ==============================
+   BASE
+============================== */
+body {
+  margin: 0;
+  background: var(--main-bg);
+  color: var(--text-main);
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  line-height: 1.7;
+}
+
+/* ==============================
+   HEADER
+============================== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 120px;
+  padding: 0 2rem;
+
+  background: #ffffff;
+  border-bottom: 4px solid var(--accent);
+}
+
+/* ロゴ画像 */
+header img {
+  height: 80px;
+  width: auto;
+  max-width: none; /* img{100%}対策 */
+}
+
+/* ==============================
+   NAVIGATION
+============================== */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 800;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ==============================
+   SECTIONS
+============================== */
+section {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--card-bg);
+}
+
+/* 見出し */
+section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--text-main);
+}
+
+/* テキスト */
+p {
+  color: var(--text-sub);
+  margin-bottom: 1rem;
+}
+
+/* ==============================
+   INFO BOX
+============================== */
+.info-box {
+  display: grid;
+  gap: 1rem;
+}
+
+.info-item {
+  background: #111;
+  padding: 1rem;
+  border-left: 4px solid var(--accent);
+  font-weight: bold;
+}
+
+/* ==============================
+   BUTTON
+============================== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(225, 6, 0, 0.4);
+}
+
+/* ==============================
+   IMAGE
+============================== */
+/* header以外の画像だけに適用 */
+section img {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-sub);
+  margin-top: 4rem;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  section {
+    margin: 2rem 1rem;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+}
+
