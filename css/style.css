@@ -1173,7 +1173,14 @@ footer {
 .results-section h2,
 .report-section h2,
 .news-section h2,
-.page-titles h1 {
+.page-titles h1,
+.about-intro h2,
+.about-cyclesoccer h2,
+.about-schedule h2,
+.place-section h3,
+.about-faq h2,
+.activity-section h2,
+.join-intro h2 {
   border-bottom: 2px solid #7b1e1e;
   padding-bottom: 5px;
   margin-bottom: 25px;
@@ -1489,3 +1496,6 @@ html, body {
   text-decoration: underline;
 }
 
+.members-page{
+  margin-top: 0px;
+}
