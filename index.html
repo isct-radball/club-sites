@@ -166,6 +166,7 @@
   <p class="schedule-note">
     見学・体験は随時受付中です。
   </p>
+  <a href="join.html#schedule" class="news-more">今月・来月の活動日 →</a>
 </section>
 
 <!-- ===== 最新情報 ===== -->
@@ -173,13 +174,13 @@
   <h2>最新情報</h2>
 
   <div class="news-item">
-    <h3>2025/12/06 ドットリンクカップ</h3>
+    <h3><a href="blog/2025-12-06.html">2025/12/06 ドットリンクカップ</a></h3>
     <p>OBOGとサイクルサッカーをしました。</p>
   </div>
 
   <div class="news-item">
-    <h3>2025/11/23 全日本学生選手権結果</h3>
-    <p>全4チームが出場しました。</p>
+    <h3><a href="results/2025-11-29.html">2025/11/29 全日本新人戦結果</a></h3>
+    <p>全2チームが出場しました。</p>
   </div>
 
   <a href="news.html" class="news-more">お知らせ一覧を見る →</a>
@@ -285,22 +286,37 @@
 
 <script>
   const hamburger = document.getElementById('hamburger');
-  const nav = document.getElementById('global-nav');
+  const globalNav = document.getElementById('global-nav');
 
+  // ハンバーガー開閉
   hamburger.addEventListener('click', () => {
-    nav.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    globalNav.classList.toggle('active');
+
+    document.body.style.overflow =
+      globalNav.classList.contains('active') ? 'hidden' : '';
   });
 
-let current = 0;
-const slides = document.querySelectorAll('.hero-slide');
+  // メニュークリックで閉じる
+  document.querySelectorAll('.global-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      globalNav.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
 
-setInterval(() => {
-  slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-}, 8000);
+  // HEROスライド
+  let current = 0;
+  const slides = document.querySelectorAll('.hero-slide');
 
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 8000);
 </script>
+
 
 
 
