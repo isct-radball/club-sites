@@ -1,104 +1,26 @@
-/* =========================
-  1. 全体共通
-========================= */
 body {
   margin: 0;
   font-family: sans-serif;
   padding-top: 72px;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 main {
   padding: 72px;
 }
 
-footer {
-  background-color: #f0f0f0;
-  text-align: center;
-  padding: 10px;
+section {
+  margin: 80px 0;
 }
 
-/* =========================
-  2. 共通パーツ
-========================= */
-.top-image {
-  width: 100%;
-  max-width: 600px;
-  display: block;
-  margin: 20px auto;
-}
-
-.photo-list {
-  display: flex;
-  gap: 15px;
-}
-
-.photo-list img {
-  width: 100%;
-  max-width: 300px;
-}
-
-/* =========================
-  3. 部員紹介
-========================= */
-.grade {
-  margin-bottom: 50px;
-}
-
-.grade h2 {
-  border-bottom: 2px solid #333;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-.member-row {
-  display: flex;
-  gap: 20px;
-}
-
-.member-card {
-  text-align: center;
-}
-
-.member-card img {
-  width: 150px;
-  height: auto;
-  width: 100%;
-  max-width: 160px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-/* =========================
-  4. ページタイトル
-========================= */
-.page-title {
-  background: #990404;
-  color: #fff;
-  padding: 20px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.page-title h1 {
-  max-width: 1100px;
-  margin: 0 auto;
-  font-size: 28px;
-}
-
-.page-title span {
-  font-size: 16px;
-  font-weight: normal;
-}
-
-/* =========================
-  5. ヘッダー・ナビ
-========================= */
+/*ヘッダー・ナビ*/
 .site-header {
   background: #fff;
   border-bottom: 1px solid #ddd;
-  position: fixed;   /* ← ここがポイント */
+  position: fixed;
   top: 0;  
   left: 0;
   width: 100%;
@@ -129,7 +51,6 @@ footer {
 
 .global-nav ul {
   display: flex;
-  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -182,12 +103,171 @@ footer {
 
 .global-nav > ul > li > a {
   font-weight: 700;
-  background: #fafafa;
+  background: #fff;
 }
 
-/* =========================
-  6. ハンバーガーメニュー
-========================= */
+@media (max-width: 800px) {
+  .global-nav.active {
+    position: fixed;
+    top: 72px;
+    right: 0;
+    width: 220px;
+    background: #fff;
+    border: 1px solid #ddd;
+    transform: none !important;   
+    opacity: 1;
+  }
+
+  .global-nav.active ul {
+    display: block;
+  }
+
+  .global-nav.active li a {
+    display: block;
+    padding: 12px;
+    color: #333;
+  }
+
+  .global-nav li a {
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .global-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .global-nav ul {
+    margin: 0;
+    padding-left: 0;
+    padding: 10px 0 10px;
+    width: 100%;
+    gap: 0;
+    display: block;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .global-nav {
+    top: 72px;
+    right: -260px;   
+    left: auto;
+    width: 260px;    
+    height: calc(100vh - 72px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: fixed !important;
+    background: #fff;
+    border-left: 1px solid #ddd;
+    transform: none !important; 
+    opacity: 1;
+    transition: right 1s ease;
+    z-index: 3000;
+    display: block;
+    justify-self: auto;
+    
+  }
+}
+
+.nav-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list > li {
+  position: relative;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 6px;
+  display: block;
+}
+
+@media (max-width: 800px) {
+
+  .nav-list {
+    flex-direction: column;
+  }
+}
+
+.has-sub:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid #ddd;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  z-index: 3000;
+  flex-direction: column;
+  padding: 0;
+}
+
+.sub-menu li a {
+  padding: 10px 16px;
+  white-space: nowrap;
+  padding-left: 40px;
+  font-size: 0.9rem;
+  background: #fff;
+  border-top: none; /* 二重線防止 */
+}
+
+.sub-menu li a:hover {
+  background: #f5f5f5;
+}
+
+@media (max-width: 800px) {
+  .sub-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: none;
+    padding-left: 10px;
+  }
+
+  .has-sub > a::after {
+    content: " ▼";
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 801px) {
+  .has-sub .sub-menu {
+    display: none;
+  }
+
+  .has-sub:hover .sub-menu {
+    display: block;
+  }
+
+  .has-sub.active .sub-menu {
+    display: none;
+  }
+}
+
 .hamburger {
   width: 32px;
   height: 24px;
@@ -210,196 +290,18 @@ footer {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-
-/* ===== スライドショー ===== */
-.slideshow {
-  width: 100%;
-  max-height: 400px;
-  overflow: hidden;
-  position: relative;
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-.slideshow img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  position: absolute;
+.hamburger.active span:nth-child(2) {
   opacity: 0;
-  transition: opacity 1s;
 }
 
-.slideshow img.active {
-  opacity: 1;
-  position: relative;
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ===== トップ2カラム ===== */
-.top-columns {
-  max-width: 1100px;
-  margin: 40px auto;
-  grid-template-columns: 1fr 1fr;
-  padding: 0 20px;
-  display: flex;
-  gap: 40px;
-}
-
-.column h2 {
-  border-bottom: 2px solid #7b1e1e;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-/* Instagram */
-.instagram iframe {
-  width: 100%;
-  height: 500px;
-}
-
-/* ニュース */
-.news-item {
-  border-bottom: 1px solid #ddd;
-  padding: 12px 0;
-}
-
-/* =========================
-  最新情報（テキスト）
-========================= */
-.latest-news {
-  max-width: 1100px;
-  margin: 60px auto 40px;
-  padding: 0 20px;
-}
-
-.latest-news h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.latest-news .news-item {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
-}
-
-/* =========================
-  SNSエリア
-========================= */
-.sns-area {
-  max-width: 1100px;
-  margin: 0 auto 60px;
-  padding: 0 20px;
-}
-
-.sns-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.sns-box {
-  background: #fafafa;
-  border: 1px solid #ddd;
-  padding: 15px;
-}
-
-.sns-box h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-
-/* サイクルサッカー説明エリア */
-.about-cyclesoccer {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 10px;
-
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-/* 左：文章 */
-.about-text {
-  flex: 1;
-}
-
-/* 右：画像 */
-.about-image {
-  flex: 1;
-}
-
-.about-image img {
-  width: 100%;
-  border-radius: 8px;
-  height: auto;
-  display: block;
-}
-
-/* ルール見出し */
-.rule-title {
-  margin-top: 20px;
-  font-size: 20px;
-}
-
-/* ルール箇条書き */
-.rule-list {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-
-.rule-list li {
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-
-/* ===== 活動日レイアウト ===== */
-.activity-section {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  margin-bottom: 40px;
-  margin: 40px 0;
-}
-
-.activity-text {
-  flex: 1;
-}
-
-.activity-image {
-  flex: 1;
-}
-
-.activity-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  max-width: 400px;
-  display: block;
-}
-
-/* ===== 活動場所 ===== */
-.place-section h3 {
-  font-size: 24px;
-  margin-bottom: 30px;
-}
-
-.place-map {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 30px;
-  align-items: start;
-}
-
-.place-text {
-  font-weight: normal;
-  min-width: 180px;
-}
-
-.map-embed {
-  flex: 1;
-}
-
-/* ===== パンくず ===== */
 .breadcrumb {
   background: #f7f7f7;
   font-size: 14px;
@@ -429,7 +331,13 @@ footer {
   color: #7b1e1e;
 }
 
-/* ===== フッター ===== */
+/*フッター*/
+footer {
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 10px;
+}
+
 .site-footer {
   background: #222;
   color: #fff;
@@ -443,6 +351,12 @@ footer {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
 }
 
 .footer-box h3,
@@ -475,65 +389,16 @@ footer {
   font-size: 12px;
 }
 
-.copyright {
-  text-align: center;
-  font-size: 13px;
-  padding: 15px 0;
-  background: #111;
-}
-
-/* ===== ナビ基本 ===== */
-.nav-list {
-  display: flex;
-  gap: 24px;
+.footer-sns {
   list-style: none;
-  margin: 0;
   padding: 0;
-}
-
-.nav-list > li {
-  position: relative;
-}
-
-.nav-list a {
-  text-decoration: none;
-  color: #333;
-  padding: 8px 6px;
-  display: block;
-}
-/* ===== サブメニュー ===== */
-.sub-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 220px;
-  background: #fff;
-  border: 1px solid #ddd;
-  list-style: none;
-  padding: 8px 0;
   margin: 0;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.2s ease;
-  z-index: 3000;
-  flex-direction: column;
-  padding: 0;
 }
 
-.sub-menu li a {
-  padding: 10px 16px;
-  white-space: nowrap;
-  padding-left: 40px; /* ← ここが効く */
-  font-size: 0.9rem;
-  background: #fff;
-  border-top: none; /* 二重線防止 */
+.footer-sns li {
+  margin-bottom: 8px;
 }
 
-.sub-menu li a:hover {
-  background: #f5f5f5;
-}
 .footer-note {
   font-size: 12px;
   color: #ccc;
@@ -545,29 +410,142 @@ footer {
   margin-top: 4px;
 }
 
-.footer-sns {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.copyright {
+  text-align: center;
+  font-size: 13px;
+  padding: 15px 0;
+  background: #111;
 }
 
-.footer-sns li {
-  margin-bottom: 8px;
+/*index.html関連*/
+/* ヒーロー*/
+.hero {
+  margin-top: 0;
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  overflow: hidden;
 }
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 1100px;
+  padding: 0 20px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-copy {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero + section {
+  margin-top: 50px;
+}
+
 @media (max-width: 768px) {
-  .footer-inner {
+  .hero {
+    height: 70vh;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn.ghost {
+  border: 2px solid #fff;
+  color: #fff;
+}
+.btn.primary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+/*特徴エリア*/
+.features {
+  background: #f7f7f7;
+  padding: 60px 20px;
+  margin-bottom: 0;
+}
+
+.features-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .features-inner {
     grid-template-columns: 1fr;
   }
 }
 
-/* ===== トップ：ヒーロー ===== */
-.hero-copy {
-  margin-top: 15px;
-  font-size: 18px;
+.feature-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.feature-item h3 {
+  margin: 10px 0 8px;
+  font-size: 20px;
+}
+
+.feature-item p {
+  font-size: 14px;
+  color: #555;
   line-height: 1.6;
 }
 
-/* ===== 活動予定 ===== */
+/*活動予定*/
 .schedule-top {
   max-width: 1100px;
   margin: 60px auto;
@@ -597,7 +575,6 @@ footer {
   font-size: 14px;
 }
 
-/* ===== 最新情報 ===== */
 .news-more {
   display: inline-block;
   margin-top: 15px;
@@ -606,185 +583,122 @@ footer {
   font-weight: bold;
 }
 
-/* ===== SNS ===== */
+/* 最新情報（テキスト）*/
+.latest-news {
+  max-width: 1100px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+}
+
+.latest-news h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.latest-news .news-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+/* SNSエリア */
+.sns-area {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
 .sns-area h2 {
   text-align: center;
   margin-bottom: 30px;
 }
-/* ===== HERO ===== */
-.hero {
-  margin-top: 0;
-  position: relative;
-  height: 80vh;
-  min-height: 500px;
-  overflow: hidden;
-}
 
-/* スライド背景 */
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-
-.hero-slide.active {
-  opacity: 1;
-}
-
-/* オーバーレイ */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  display: flex;
-  align-items: center;
-}
-
-/* テキスト */
-.hero-content {
-  max-width: 1100px;
-  padding: 0 20px;
-  margin: 0 auto;
-  color: #fff;
-}
-
-.hero-content h1 {
-  font-size: 42px;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.hero-copy {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-/* ボタン */
-.hero-buttons {
-  display: flex;
-  gap: 15px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 22px;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 4px;
-}
-
-
-.btn.ghost {
-  border: 2px solid #fff;
-  color: #fff;
-}
-.btn.primary {
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-/* ===== 特徴エリア ===== */
-.features {
-  background: #f7f7f7;
-  padding: 60px 20px;
-  margin-bottom: 0;
-}
-
-.features-inner {
-  max-width: 1100px;
-  margin: 0 auto;
+.sns-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  text-align: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
-.feature-icon {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.feature-item h3 {
-  margin: 10px 0 8px;
-  font-size: 20px;
-}
-
-.feature-item p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* スマホ対応 */
 @media (max-width: 768px) {
-  .features-inner {
+  .sns-container {
     grid-template-columns: 1fr;
   }
 }
-.hero + section {
-  margin-top: 50px;
+
+.sns-box {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 15px;
 }
 
-.about-schedule,
-.about-faq {
+.sns-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/*共通*/
+/*ページタイトル*/
+.page-title {
+  background: #990404;
+  color: #fff;
+  padding: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.page-title h1 {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-size: 28px;
+}
+
+.page-title span {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.results-section,
+.report-section,
+.news-section {
   max-width: 1100px;
   margin: 80px auto;
   padding: 0 20px;
+  background: #fafafa;
+  padding: 20px 0;
 }
 
-/* ===== 部活紹介：導入 ===== */
+.results-section h2,
+.report-section h2,
+.news-section h2,
+.page-titles h1,
+.about-intro h2,
+.about-cyclesoccer h2,
+.about-schedule h2,
+.place-section h3,
+.about-faq h2,
+.activity-section h2,
+.join-intro h2 {
+  border-bottom: 2px solid #7b1e1e;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+}
+
+#sport,
+#schedule,
+#access,
+#faq,
+#content,
+#report,
+#result,
+#news  {
+  scroll-margin-top: 90px;
+}
+
+/*about.html関連*/
+/*概要・特徴*/
 .about-intro {
   max-width: 1100px;
   margin: 20px auto;
   padding: 0 20px;
-}
-
-.intro-text {
-  margin-bottom: 30px;
-  line-height: 1.8;
-}
-
-.feature-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.feature-list li {
-  background: #f7f7f7;
-  padding: 20px;
-  border-radius: 6px;
-}
-
-.feature-title {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.year-list li {
-  margin-bottom: 10px;
-}
-
-.faq-list dt {
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-.faq-list dd {
-  margin-left: 0;
-  margin-top: 5px;
-  line-height: 1.7;
-}
-
-@media (max-width: 768px) {
-  .feature-list {
-    grid-template-columns: 1fr;
-  }
 }
 
 .about-intro h2 {
@@ -798,7 +712,6 @@ footer {
   margin-bottom: 30px;
 }
 
-/* 写真 */
 .about-photo {
   margin: 30px 0 50px;
 }
@@ -809,11 +722,16 @@ footer {
   border-radius: 8px;
 }
 
-/* 特徴カード */
 .about-features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .about-features {
+    grid-template-columns: 1fr;
+  }
 }
 
 .feature-card {
@@ -834,18 +752,70 @@ footer {
   line-height: 1.6;
 }
 
-/* スマホ対応 */
+/* サイクルサッカー説明エリア */
+.about-cyclesoccer {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 10px;
+
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
-  .about-features {
-    grid-template-columns: 1fr;
+  .about-cyclesoccer {
+    flex-direction: column;
   }
 }
 
+.about-text {
+  flex: 1;
+}
+
+.rule-title {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.rule-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.rule-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 8px;
+  height: auto;
+  display: block;
+}
+
+.about-schedule,
+.about-faq {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
 
 .schedule-inner {
   display: flex;
   gap: 40px;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .schedule-inner {
+    flex-direction: column;
+  }
 }
 
 .schedule-text {
@@ -873,7 +843,8 @@ footer {
   color: #7b1e1e;
 }
 
-/* 画像側 */
+
+
 .schedule-image {
   flex: 1;
 }
@@ -895,13 +866,29 @@ footer {
   margin: 80px 0;
 }
 
+.place-section h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
 .place-inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* テキスト */
+.place-map {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.place-text {
+  font-weight: normal;
+  min-width: 180px;
+}
+
 .place-name {
   font-weight: bold;
   font-size: 16px;
@@ -914,7 +901,10 @@ footer {
   line-height: 1.6;
 }
 
-/* 地図カード */
+.map-embed {
+  flex: 1;
+}
+
 .map-embed iframe {
   width: 100%;
   height: 260px;
@@ -923,22 +913,6 @@ footer {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-#sport,
-#schedule,
-#access,
-#faq {
-  scroll-margin-top: 90px;
-}
-
-#content,
-#report,
-#result,
-#news {
-  scroll-margin-top: 90px;
-}
-
-
-/* スマホ対応 */
 @media (max-width: 768px) {
   .place-map {
     grid-template-columns: 1fr;
@@ -950,244 +924,25 @@ footer {
   }
 }
 
-/* ===== スマホ対応 ===== */
-@media (max-width: 768px) {
-  .activity-section{
-    flex-direction: column;
-  }
+.faq-list dt {
+  font-weight: bold;
+  margin-top: 20px;
 }
 
-
-/* スマホ対応 */
-@media (max-width: 768px) {
-  .schedule-inner {
-    flex-direction: column;
-  }
+.faq-list dd {
+  margin-left: 0;
+  margin-top: 5px;
+  line-height: 1.7;
 }
 
-
-
-
-/* スマホ */
-@media (max-width: 768px) {
-  .hero {
-    height: 70vh;
-  }
-
-  .hero-content h1 {
-    font-size: 30px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-  }
-}
-
-
-/* ホバー時に表示 */
-.has-sub:hover .sub-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-@media (max-width: 800px) {
-
-  .nav-list {
-    flex-direction: column;
-  }
-
-  .sub-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    border: none;
-    padding-left: 10px;
-  }
-
-  .has-sub > a::after {
-    content: " ▼";
-    font-size: 12px;
-  }
-}
-
-/* =========================
-  スマホ対応
-========================= */
-@media (max-width: 768px) {
-  .sns-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ===== レスポンシブ ===== */
-@media (max-width: 768px) {
-  .top-columns {
-    grid-template-columns: 1fr;
-    flex-direction: column;
-  }
-
-  .slideshow img {
-    height: 250px;
-  }
-}
-
-.top-columns .column {
-  flex: 1;
-}
-
-  /* スマホ対応 */
-  @media (max-width: 600px) {
-    .member-row {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
-  
-/* スマホ対応 */
-@media (max-width: 600px) {
-
-    nav li {
-      display: block;
-      margin: 10px 0;
-    }
-  
-    header h1 {
-      font-size: 20px;
-    }
-  
-    main {
-      padding: 15px;
-    }
-
-    .photo-list {
-        flex-direction: column;
-      }
-    .member {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-  }
-/* =========================
-  レスポンシブ切り替え
-========================= */
-
-
-@media (max-width: 800px) {
-  .global-nav.active {
-    display: block;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 220px;
-    background: #fff;
-    border: 1px solid #ddd;
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  .global-nav.active ul {
-    display: block;
-  }
-
-  .global-nav.active li a {
-    display: block;
-    padding: 12px;
-    color: #333;
-  }
-
-  .global-nav li a {
-    padding: 14px 20px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .global-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .global-nav ul {
-    margin: 0;
-    padding-left: 0;
-    display: block;
-    padding: 10px 0 10px;
-    width: 100%;
-    gap: 0;
-    display: block;
-  }
-
-  .global-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    max-width: 100%;
-    box-sizing: border-box;
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    position: fixed;
-
-    background: #fff;
-    border-left: 1px solid #ddd;
-
-    /* 非表示状態 */
-    transform: translateX(100%);
-    opacity: 0;
-
-    transition: transform 0.3s ease, opacity 0.3s ease;
-
-    z-index: 3000;
-    display: block; /* ← noneにしない */
-    
-  }
-}
-
-
-@media (max-width: 768px) {
-  .about-cyclesoccer {
-    flex-direction: column;
-  }
-}
-
-/* ===== 戦績・レポート・お知らせ 共通 ===== */
-.results-section,
-.report-section,
-.news-section {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 0 20px;
-  background: #fafafa;
-  padding: 20px 0;
-}
-
-.results-section h2,
-.report-section h2,
-.news-section h2,
-.page-titles h1,
-.about-intro h2,
-.about-cyclesoccer h2,
-.about-schedule h2,
-.place-section h3,
-.about-faq h2,
-.activity-section h2,
-.join-intro h2 {
-  border-bottom: 2px solid #7b1e1e;
-  padding-bottom: 5px;
-  margin-bottom: 25px;
-}
-
-.highlight-result h3 {
-  margin-top: 0;
+/*activity.html関連*/
+/*活動内容*/
+.activity-section {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 40px;
+  margin: 40px 0;
 }
 
 .activity-inner {
@@ -1202,15 +957,32 @@ footer {
   }
 }
 
-/* ===== 共通レイアウト ===== */
+@media (max-width: 768px) {
+  .activity-section{
+    flex-direction: column;
+  }
+}
+
+.activity-text {
+  flex: 1;
+}
+
+.activity-image {
+  flex: 1;
+}
+
+.activity-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  max-width: 400px;
+  display: block;
+}
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-section {
-  margin: 80px 0;
 }
 
 .highlight-result {
@@ -1220,22 +992,28 @@ section {
   margin-bottom: 30px;
 }
 
+.highlight-result h3 {
+  margin-top: 0;
+}
+
 .latest-results {
   margin-bottom: 20px;
 }
 
-/* ===== 部員紹介 ===== */
-.members-section {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 0 20px;
+.news-item {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
 }
 
-.members-section h2 {
-  font-size: 28px;
-  margin-bottom: 40px;
+/*member.html関連*/
+/*部員紹介 */
+.members-page{
+  margin-top: 0px;
 }
 
+.grade {
+  margin-bottom: 50px;
+}
 
 .grade h3 {
   border-bottom: 2px solid #7b1e1e;
@@ -1243,15 +1021,25 @@ section {
   margin-bottom: 20px;
 }
 
-/* カードグリッド */
 .member-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 25px;
 }
 
-.member-card .name {
-  font-weight: bold;
+.member-card {
+  text-align: center;
+}
+
+.member-card img {
+  width: 150px;
+  height: auto;
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 .member-card .role {
@@ -1262,17 +1050,6 @@ section {
 .member-card .comment {
   font-size: 14px;
   margin-top: 6px;
-}
-
-/* ===== 部員の声 ===== */
-.voice-section {
-  background: #f7f7f7;
-  padding: 60px 20px;
-}
-
-.voice-section h2 {
-  max-width: 1100px;
-  margin: 0 auto 30px;
 }
 
 .voice-grid {
@@ -1289,10 +1066,6 @@ section {
   border-radius: 8px;
 }
 
-.voice-text {
-  line-height: 1.6;
-}
-
 .voice-name {
   margin-top: 10px;
   font-size: 14px;
@@ -1300,23 +1073,8 @@ section {
   text-align: right;
 }
 
+/*join.html関連*/
 /* ===== 入部案内 ===== */
-.join-section h3 {
-  border-bottom: 2px solid #7b1e1e;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-}
-
-.join-flow {
-  padding-left: 20px;
-}
-
-.join-flow li {
-  margin-bottom: 15px;
-  line-height: 1.7;
-}
-
-/* ===== 入部案内 導入 ===== */
 .join-intro {
   display: flex;
   gap: 40px;
@@ -1339,7 +1097,12 @@ section {
   border-radius: 12px;
 }
 
-/* 見学フロー */
+.join-section h3 {
+  border-bottom: 2px solid #7b1e1e;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
 .join-flow {
   padding-left: 20px;
 }
@@ -1349,29 +1112,10 @@ section {
   line-height: 1.6;
 }
 
-/* スマホ対応 */
 @media (max-width: 768px) {
   .join-intro {
     flex-direction: column;
   }
-}
-
-
-.hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/* 横スクロール完全防止 */
-html, body {
-  overflow-x: hidden;
 }
 
 /* ===== 記事ページ共通 ===== */
@@ -1385,7 +1129,6 @@ html, body {
   background: #fff;
 }
 
-/* ヘッダー */
 .article-header {
   border-bottom: 2px solid #c00;
   margin-bottom: 30px;
@@ -1403,14 +1146,62 @@ html, body {
   margin-bottom: 10px;
 }
 
-/* 本文 */
 .article-body p {
   line-height: 1.9;
   margin-bottom: 20px;
   font-size: 16px;
 }
 
-/* 結果強調ボックス */
+.article-author {
+  text-align: right;
+  margin-top: 40px;
+  font-weight: 600;
+}
+
+.article-back {
+  margin-top: 40px;
+}
+
+.article-back a {
+  text-decoration: none;
+  color: #c00;
+  font-weight: 600;
+}
+
+.article-back a:hover {
+  text-decoration: underline;
+}
+
+.article-link {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.article-link a {
+  color: #c00;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.article-link a::after {
+  content: " ↗";
+  font-size: 0.9em;
+}
+
+.article-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .article-title {
+    font-size: 22px;
+  }
+
+  .article-body p {
+    font-size: 15px;
+  }
+}
+
 .result-box {
   background: #f9f9f9;
   border-left: 5px solid #c00;
@@ -1440,62 +1231,4 @@ html, body {
 .highlight {
   color: #c00;
   font-size: 18px;
-}
-
-/* 著者 */
-.article-author {
-  text-align: right;
-  margin-top: 40px;
-  font-weight: 600;
-}
-
-/* 戻るリンク */
-.article-back {
-  margin-top: 40px;
-}
-
-.article-back a {
-  text-decoration: none;
-  color: #c00;
-  font-weight: 600;
-}
-
-.article-back a:hover {
-  text-decoration: underline;
-}
-
-/* ===== スマホ対応 ===== */
-@media (max-width: 600px) {
-  .article-title {
-    font-size: 22px;
-  }
-
-  .article-body p {
-    font-size: 15px;
-  }
-}
-
-/* 外部リンク（記事末） */
-.article-link {
-  margin-top: 30px;
-  text-align: left;
-}
-
-.article-link a {
-  color: #c00;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.article-link a::after {
-  content: " ↗";
-  font-size: 0.9em;
-}
-
-.article-link a:hover {
-  text-decoration: underline;
-}
-
-.members-page{
-  margin-top: 0px;
 }
